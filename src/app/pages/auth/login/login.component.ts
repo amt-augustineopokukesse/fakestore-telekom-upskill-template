@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoginResponse } from 'src/app/core/models/interfaces/authInterface';
+import { AuthService } from 'src/app/core/service/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +11,22 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
   public loginForm: FormGroup;
 
-  public constructor() {
+  public constructor(private authService: AuthService) {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     });
   }
 
   public onSubmit(): void {
+    this.authService.login(this.loginForm.value).subscribe({
+      next: (response: LoginResponse ) => {
+        console.log(response);
+        const token = response.token;
+        sessionStorage.setItem('token', token);
+      },
+      error: (error) => console.log(error)
+    });
     console.log(this.loginForm.value);
   }
   

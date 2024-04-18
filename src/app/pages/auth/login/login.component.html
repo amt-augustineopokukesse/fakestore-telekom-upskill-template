@@ -6,10 +6,10 @@
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <app-custom-input
                 [type]="'email'"
-                [label]="'Email'"
-                [placeholder]="'Enter email'"
+                [label]="'Username'"
+                [placeholder]="'Enter Username'"
                 [required]="true"
-                formControlName="email"
+                formControlName="username"
                 ngDefaultControl
             >
             </app-custom-input>

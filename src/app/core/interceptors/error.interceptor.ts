@@ -19,7 +19,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         if(err) {
           switch (err.status) {
           case 400:
-            return throwError(() => 'Bad Request');
+            return throwError(() => err);
           }
         }
         return throwError(() => err);
