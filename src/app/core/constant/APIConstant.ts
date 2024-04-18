@@ -1,7 +1,4 @@
 export const APIConstant = {
-//   BASE_URL: 'https://fakestoreapi.com/',
-//   CATEGORIES: 'products/categories',
-//   PRODUCTS: 'products',
   login: 'auth/login',
   user: {
     createNewUser: 'users',
