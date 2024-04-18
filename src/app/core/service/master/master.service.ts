@@ -12,8 +12,8 @@ export class MasterService {
 
   private constructor(private http: HttpClient) { }
 
-  public get(url: string) {
-    return this.http.get(this.baseUrl + url);
+  public get<T>(url: string): Observable<T> {
+    return this.http.get<T>(this.baseUrl + url);
   }
 
   public post<T>(url: string, body: unknown): Observable<T> {
