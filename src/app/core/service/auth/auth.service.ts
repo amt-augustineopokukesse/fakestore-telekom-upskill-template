@@ -13,4 +13,8 @@ export class AuthService {
   public login(data: { username: string; password: string }) {
     return this.master.post<LoginResponse>('auth/login', data);
   }
+
+  public logout() {
+    sessionStorage.clear();
+  }
 }

@@ -5,12 +5,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { CustomButtonComponent } from './widgets/custom-button/custom-button.component';
 
 
 
 @NgModule({
   declarations: [
     CustomInputComponent,
+    CustomButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   exports: [
-    CustomInputComponent
+    CustomInputComponent,
+    CustomButtonComponent
   ]
 })
 export class SharedModule { }
