@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginResponse } from 'src/app/core/models/interfaces/authInterface';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
 
@@ -11,7 +12,7 @@ import { AuthService } from 'src/app/core/service/auth/auth.service';
 export class LoginComponent {
   public loginForm: FormGroup;
 
-  public constructor(private authService: AuthService) {
+  public constructor(private authService: AuthService, private route: Router) {
     this.loginForm = new FormGroup({
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
@@ -24,6 +25,7 @@ export class LoginComponent {
         console.log(response);
         const token = response.token;
         sessionStorage.setItem('token', token);
+        this.route.navigate(['products']);
       },
       error: (error) => console.log(error)
     });

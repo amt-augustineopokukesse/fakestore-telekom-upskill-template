@@ -10,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
-    CustomInputComponent
+    CustomInputComponent,
   ],
   imports: [
     CommonModule,

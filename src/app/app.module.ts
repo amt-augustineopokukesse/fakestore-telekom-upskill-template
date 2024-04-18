@@ -15,9 +15,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { ProductsComponent } from './pages/products/products/products.component';
+import { NavbarComponent } from './shared/widgets/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [
+    AppComponent, 
+    LoginComponent, 
+    ProductsComponent,
+    NavbarComponent
+  ],
   imports: [
     BrowserModule, 
     AppRoutingModule, 
