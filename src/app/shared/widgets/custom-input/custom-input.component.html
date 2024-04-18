@@ -1,1 +1,9 @@
-<p>custom-input works!</p>
+
+<div>
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{label}}</mat-label>
+        <input matInput required={{required}} type={{type}} placeholder={{placeholder}}>
+        
+        <mat-error *ngIf="required">This field is required</mat-error>
+    </mat-form-field>
+</div>

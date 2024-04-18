@@ -3,5 +3,26 @@
         <mat-card-header>
             <mat-card-title>Login</mat-card-title>
         </mat-card-header>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <app-custom-input
+                [type]="'email'"
+                [label]="'Email'"
+                [placeholder]="'Enter email'"
+                [required]="true"
+                formControlName="email"
+                ngDefaultControl
+            >
+            </app-custom-input>
+            <app-custom-input
+                [type]="'password'"
+                [label]="'Password'"
+                [placeholder]="'Enter password'"
+                [required]="true"
+                formControlName="password"
+                ngDefaultControl
+            >
+            </app-custom-input>
+            <button mat-flat-button color="primary">Login</button>
+        </form>
     </mat-card-content>
 </mat-card>

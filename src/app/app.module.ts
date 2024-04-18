@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { LoginComponent } from './pages/auth/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -25,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule, 
     MatInputModule, 
     ReactiveFormsModule, 
-    MatIconModule
+    MatIconModule,
+    SharedModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

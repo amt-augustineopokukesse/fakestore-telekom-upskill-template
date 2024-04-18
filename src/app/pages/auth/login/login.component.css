@@ -3,6 +3,6 @@ mat-card{
     margin: 2em auto;
     text-align: center;
     height: 40vh;
-    background-color: black;
-    color: white;
+    /* background-color: rgb(213, 195, 195); */
+    /* color: white; */
 }

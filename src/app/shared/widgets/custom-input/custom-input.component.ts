@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-custom-input',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./custom-input.component.css']
 })
 export class CustomInputComponent {
+  @Input () public label = '';
+  @Input () public required = false;
+  @Input () public type = '';
+  @Input () public placeholder = '';
 
 }
