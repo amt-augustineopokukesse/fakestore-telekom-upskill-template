@@ -1,0 +1,1 @@
+// import { cartIcon } from 'src/assets/svg/cartIcon.svg';

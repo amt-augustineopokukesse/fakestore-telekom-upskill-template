@@ -1,16 +1,43 @@
 .navbar {
     height: 10vh;
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     /* background-color: rgb(114, 29, 29); */
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .search {
-    width: 40%;
+    width: 45%;
     height: 60%;
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.customSearchInput{
+    width: 90%;
+    height: 80%;
+    border-radius: 5px;
+    outline: 1px solid rgb(104, 103, 103);
+    border: 1px solid transparent;
+}
+
+.customSearchInput:focus {
+    outline: 0;
+    border: 1px solid black;
+}
+
+.cart-logout {
+    width: 25%;
+    height: 60%;
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .hideIcon {

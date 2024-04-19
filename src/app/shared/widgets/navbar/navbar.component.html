@@ -10,9 +10,9 @@
           name="search"
           id="search"
         />
-        <div class="searchIcon" [ngClass]="searchText.length > 0 ? 'hideIcon' : ''">
-          <i aria-hidden="true" class="pi pi-search"></i>
-        </div>
       </div>
-    <app-custom-button (click)="onLogout()">Logout</app-custom-button>
+      <div class="cart-logout">
+        <img src="../../../assets/svg/cartIcon.svg" alt="cart icon">
+        <app-custom-button (click)="onLogout()">Logout</app-custom-button>
+      </div>
 </div>
