@@ -8,10 +8,19 @@ import { Product } from '../../models/interfaces/productsInterface';
 })
 export class ProductsService {
   private endpoints = APIConstant.products;
+  public selectedProducts = new Map;
 
   public constructor(private master: MasterService) { }
 
   public getProducts() {
     return this.master.get<Product[]>(this.endpoints.getAllProducts);
+  }
+
+  public getSelectedProducts() {
+    return this.selectedProducts;
+  }
+
+  public setProduct(product: Product) {
+    this.selectedProducts.set(product.id, product);
   }
 }

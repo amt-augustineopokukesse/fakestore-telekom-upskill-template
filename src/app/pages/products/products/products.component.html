@@ -4,6 +4,14 @@
         <mat-card>
             <img class ="image" mat-card-image src="{{product.image}}" alt="{{product.title}}">
             <h3>{{product.title}}</h3>
+            <div>
+                <span>{{product.price | currency:'USD'}}</span>
+                <div>
+                    <app-custom-button (click)="onRemoveFromCart(product)" color="warn"> - </app-custom-button>
+                    <span>{{productQuantity[product.id] || 0}}</span>
+                    <app-custom-button (click)="onAddToCart(product)" color="primary"> + </app-custom-button>
+                </div>
+            </div>
         </mat-card>
     </div>
 </div>
