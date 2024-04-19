@@ -7,3 +7,12 @@
     align-items: center;
     justify-content: flex-end;
 }
+
+.search {
+    width: 40%;
+    height: 60%;
+}
+
+.hideIcon {
+    display: none;
+}

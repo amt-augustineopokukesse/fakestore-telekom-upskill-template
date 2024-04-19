@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar (searchTextChange)="onSearch($event)"></app-navbar>
 <div class="container">
     <div *ngFor="let product of products">
         <mat-card>

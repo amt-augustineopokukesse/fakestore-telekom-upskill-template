@@ -1,3 +1,18 @@
 <div class="navbar">
+    <div class="search">
+        <input
+          type="text"
+          pInputText
+          [placeholder]="'Enter item name'"
+          class="customSearchInput"
+          [(ngModel)]="searchText"
+          (input)="searchFilter()"
+          name="search"
+          id="search"
+        />
+        <div class="searchIcon" [ngClass]="searchText.length > 0 ? 'hideIcon' : ''">
+          <i aria-hidden="true" class="pi pi-search"></i>
+        </div>
+      </div>
     <app-custom-button (click)="onLogout()">Logout</app-custom-button>
 </div>

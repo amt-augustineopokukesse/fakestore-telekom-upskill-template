@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 import { LoginComponent } from './pages/auth/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -35,7 +36,8 @@ import { NavbarComponent } from './shared/widgets/navbar/navbar.component';
     ReactiveFormsModule, 
     MatIconModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

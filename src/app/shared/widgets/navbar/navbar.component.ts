@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
 
@@ -8,6 +8,9 @@ import { AuthService } from 'src/app/core/service/auth/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  public searchText = '';
+  @Output() public searchTextChange = new EventEmitter<string>();
+  @Output() public searchParam = new EventEmitter<string>();
 
   public constructor(private authService: AuthService, private router: Router){}
 
@@ -15,4 +18,10 @@ export class NavbarComponent {
     this.authService.logout();
     this.router.navigate(['']);
   }
+
+  public searchFilter() {
+    this.searchTextChange.emit(this.searchText);
+  }
+
+  
 }

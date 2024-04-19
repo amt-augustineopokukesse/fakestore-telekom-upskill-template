@@ -22,9 +22,21 @@ export class ProductsComponent implements OnInit {
         next: (response) => {
           console.log(response);
           this.products = response;
+          sessionStorage.setItem('products', JSON.stringify(this.products));
         },
         error: (error) => console.log(error)
       }
     );
+  }
+  public onSearch(event: string): void {
+    const tempProducts = JSON.parse(sessionStorage.getItem('products') as string);
+    if(event.length > 0) {
+      this.products = tempProducts.filter((product: Product) => {
+        return product.title.toLowerCase().includes(event.toLowerCase());
+      });
+    } else {
+      this.products = tempProducts;
+    }
+    console.log(event);
   }
 }
