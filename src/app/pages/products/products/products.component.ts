@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product, ProductQuantity } from 'src/app/core/models/interfaces/productsInterface';
+import { CartService } from 'src/app/core/service/cart/cart.service';
 import { ProductsService } from 'src/app/core/service/products/products.service';
 import { mapSerializer } from 'src/app/core/utils/utils';
 
@@ -11,14 +12,14 @@ import { mapSerializer } from 'src/app/core/utils/utils';
 export class ProductsComponent implements OnInit {
   public products: Product[] = [];
   public productQuantity: ProductQuantity = {};
+  public cartCount = 0;
 
-  public constructor(private productsService: ProductsService) { }
+  public constructor(private productsService: ProductsService, private cartService: CartService) { }
 
   public ngOnInit(): void {
     this.getProducts();
     if(sessionStorage.getItem('productQuantity')) {
       this.productQuantity = JSON.parse(sessionStorage.getItem('productQuantity') as string);
-      console.log(this.productQuantity);
     }
     const storedSelectedProducts = sessionStorage.getItem('selectedProducts');
 
@@ -32,11 +33,10 @@ export class ProductsComponent implements OnInit {
     this.productsService.getProducts().subscribe(
       {
         next: (response) => {
-          console.log(response);
           this.products = response;
           sessionStorage.setItem('products', JSON.stringify(this.products));
         },
-        error: (error) => console.log(error)
+        error: (error) => console.error(error)
       }
     );
   }
@@ -49,7 +49,6 @@ export class ProductsComponent implements OnInit {
     } else {
       this.products = tempProducts;
     }
-    console.log(event);
   }
 
   public onAddToCart(product: Product) {
@@ -67,33 +66,36 @@ export class ProductsComponent implements OnInit {
       this.productsService.selectedProducts.set(product.id, { ...product, quantity: 1 });
       this.productQuantity[product.id] = 1;
     }
-    console.log(this.productsService.selectedProducts);
-    console.log(this.productQuantity);
     const serializedMap = mapSerializer(this.productsService.selectedProducts);
     sessionStorage.setItem('selectedProducts', serializedMap);
     sessionStorage.setItem('productQuantity', JSON.stringify(this.productQuantity));
+    this.cartCount += 1;
+    this.cartService.setCount(this.cartCount);
   }
 
   public onRemoveFromCart(product: Product) {
     if (this.productsService.selectedProducts.has(product.id)) {
       const currentProduct = this.productsService.selectedProducts.get(product.id);
-      if (currentProduct.quantity > 1) {
+      if (currentProduct.quantity >= 1) {
         const updatedProduct = {
           ...currentProduct,
           quantity: currentProduct.quantity - 1
         };
         this.productsService.selectedProducts.set(product.id, updatedProduct);
         this.productQuantity[product.id] = updatedProduct.quantity;
+        this.cartCount -= 1;
       } else {
         this.productsService.selectedProducts.delete(product.id);
         delete this.productQuantity[product.id];
       }
     }
-    console.log(this.productsService.selectedProducts);
-    console.log(this.productQuantity);
     const serializedMap = mapSerializer(this.productsService.selectedProducts);
     sessionStorage.setItem('selectedProducts', serializedMap);
     sessionStorage.setItem('productQuantity', JSON.stringify(this.productQuantity));
+    if(this.productQuantity[product.id]) {
+      this.cartCount -= 1;
+    }
+    this.cartService.setCount(this.cartCount);
   }
   
 }

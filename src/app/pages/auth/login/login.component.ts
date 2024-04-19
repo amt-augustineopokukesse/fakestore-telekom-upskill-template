@@ -22,14 +22,12 @@ export class LoginComponent {
   public onSubmit(): void {
     this.authService.login(this.loginForm.value).subscribe({
       next: (response: LoginResponse ) => {
-        console.log(response);
         const token = response.token;
         sessionStorage.setItem('token', token);
         this.route.navigate(['products']);
       },
-      error: (error) => console.log(error)
+      error: (error) => console.error(error)
     });
-    console.log(this.loginForm.value);
   }
   
 }
