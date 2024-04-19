@@ -31,6 +31,9 @@ export class NavbarComponent implements OnInit{
   public searchFilter() {
     this.searchTextChange.emit(this.searchText);
   }
-
+  
+  public onCartClick() {
+    this.router.navigate(['cart']);
+  }
   
 }

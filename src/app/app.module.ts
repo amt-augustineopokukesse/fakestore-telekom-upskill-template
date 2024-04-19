@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { ProductsComponent } from './pages/products/products/products.component';
 import { NavbarComponent } from './shared/widgets/navbar/navbar.component';
+import { CartComponent } from './pages/cart/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NavbarComponent } from './shared/widgets/navbar/navbar.component';
     LoginComponent, 
     ProductsComponent,
     NavbarComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule, 
