@@ -24,7 +24,7 @@ import { NavbarComponent } from './shared/widgets/navbar/navbar.component';
     AppComponent, 
     LoginComponent, 
     ProductsComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule, 
