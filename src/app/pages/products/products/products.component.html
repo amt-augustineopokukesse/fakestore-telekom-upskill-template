@@ -2,8 +2,12 @@
 <div class="container">
     <div *ngFor="let product of products">
         <mat-card>
-            <img class ="image" mat-card-image src="{{product.image}}" alt="{{product.title}}">
-            <h3>{{product.title}}</h3>
+            <div (click)="onProductClick(product.id)" (keyup.enter)="onProductClick(product.id)" class="image-name"
+                tabindex="0" role="button"
+            >
+                <img class ="image" mat-card-image src="{{product.image}}" alt="{{product.title}}">
+                <h3>{{product.title}}</h3>
+            </div>
             <div>
                 <span>{{product.price | currency:'USD'}}</span>
                 <div>

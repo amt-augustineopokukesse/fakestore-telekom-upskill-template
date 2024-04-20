@@ -19,6 +19,7 @@ import { SharedModule } from './shared/shared.module';
 import { ProductsComponent } from './pages/products/products/products.component';
 import { NavbarComponent } from './shared/widgets/navbar/navbar.component';
 import { CartComponent } from './pages/cart/cart/cart.component';
+import { ProductComponent } from './pages/product/product/product.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CartComponent } from './pages/cart/cart/cart.component';
     ProductsComponent,
     NavbarComponent,
     CartComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule, 
