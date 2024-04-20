@@ -77,5 +77,11 @@ describe('LoginComponent', () => {
     component.onSubmit();
     expect(mockAuthService.login).toHaveBeenCalledWith({ username: 'user', password: 'pass' });
   });
+
+  it('should navigate to products page on successful login', () => {
+    mockAuthService.login.and.returnValue(of({ token: 'fake-token' }));
+    component.onSubmit();
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['products']);
+  });
   
 });
