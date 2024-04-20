@@ -9,7 +9,7 @@ import { MasterService } from 'src/app/core/service/master/master.service';
 import { MatCardModule } from '@angular/material/card';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -82,6 +82,13 @@ describe('LoginComponent', () => {
     mockAuthService.login.and.returnValue(of({ token: 'fake-token' }));
     component.onSubmit();
     expect(mockRouter.navigate).toHaveBeenCalledWith(['products']);
+  });
+
+  it('should handle login error', () => {
+    const consoleSpy = spyOn(console, 'error');
+    mockAuthService.login.and.returnValue(throwError(() => new Error('Login failed')));
+    component.onSubmit();
+    expect(consoleSpy).toHaveBeenCalledWith(new Error('Login failed'));
   });
   
 });
