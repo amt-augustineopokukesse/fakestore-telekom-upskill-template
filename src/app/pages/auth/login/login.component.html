@@ -1,28 +1,31 @@
-<mat-card>
-    <mat-card-content>
-        <mat-card-header>
-            <mat-card-title>Login</mat-card-title>
-        </mat-card-header>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <app-custom-input
-                [type]="'email'"
-                [label]="'Username'"
-                [placeholder]="'Enter Username'"
-                [required]="true"
-                formControlName="username"
-                ngDefaultControl
-            >
-            </app-custom-input>
-            <app-custom-input
-                [type]="'password'"
-                [label]="'Password'"
-                [placeholder]="'Enter password'"
-                [required]="true"
-                formControlName="password"
-                ngDefaultControl
-            >
-            </app-custom-input>
-            <button mat-flat-button color="primary">Login</button>
-        </form>
-    </mat-card-content>
-</mat-card>
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+            <mat-card-header>
+                <mat-card-title>SIGN IN</mat-card-title>
+            </mat-card-header>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+                <app-custom-input
+                    [type]="'email'"
+                    [label]="'Username'"
+                    [placeholder]="'Enter Username'"
+                    [required]="true"
+                    formControlName="username"
+                    ngDefaultControl
+                >
+                </app-custom-input>
+                <app-custom-input
+                    [type]="'password'"
+                    [label]="'Password'"
+                    [placeholder]="'Enter password'"
+                    [required]="true"
+                    formControlName="password"
+                    ngDefaultControl
+                >
+                </app-custom-input>
+                <button mat-flat-button color="primary">Login</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+</div>

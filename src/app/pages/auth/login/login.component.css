@@ -1,8 +1,48 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("src/assets/images/shop-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: aqua; */
+}
+
 mat-card{
-    max-width: 400px;
-    margin: 2em auto;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    height: 40vh;
-    /* background-color: rgb(213, 195, 195); */
+    height: 60vh;
+    background-color: rgb(255, 255, 255, 0.9)
     /* color: white; */
+}
+
+mat-card-content {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+    background-color: white;
+
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 5%;
+    text-align: center;
 }
