@@ -9,7 +9,7 @@ import { MasterService } from 'src/app/core/service/master/master.service';
 import { MatCardModule } from '@angular/material/card';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { of, throwError } from 'rxjs';
+import { of } from 'rxjs';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -42,4 +42,40 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should initialize the login form with empty fields', () => {
+    const usernameControl = component.loginForm.get('username');
+    const passwordControl = component.loginForm.get('password');
+    if (usernameControl && passwordControl) {
+      expect(usernameControl).toBeTruthy();
+      expect(passwordControl).toBeTruthy();
+      expect(usernameControl.value).toEqual('');
+      expect(passwordControl.value).toEqual('');
+      expect(usernameControl.valid).toBeFalsy();
+      expect(passwordControl.valid).toBeFalsy();
+    } else {
+      fail('usernameControl or passwordControl is null');
+    }
+  });
+  
+  it('should validate username and password as required', () => {
+    const usernameControl = component.loginForm.get('username');
+    const passwordControl = component.loginForm.get('password');
+    if(usernameControl && passwordControl){
+      usernameControl.setValue('');
+      passwordControl.setValue('');
+      expect(usernameControl.hasError('required')).toBeTruthy();
+      expect(passwordControl.hasError('required')).toBeTruthy();
+    } else {
+      fail('usernameControl or passwordControl is null');
+    }
+  });
+
+  it('should call authService.login() when form is valid', () => {
+    mockAuthService.login.and.returnValue(of({ token: 'fake-token' }));
+    component.loginForm.setValue({ username: 'user', password: 'pass' });
+    component.onSubmit();
+    expect(mockAuthService.login).toHaveBeenCalledWith({ username: 'user', password: 'pass' });
+  });
+  
 });
