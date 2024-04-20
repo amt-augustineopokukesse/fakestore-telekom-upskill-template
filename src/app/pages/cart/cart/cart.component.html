@@ -3,11 +3,7 @@
         <mat-card *ngFor="let product of products">
             <div class="image-container">
                 <img class ="image" mat-card-image src="{{product[1].image}}" alt="{{product[1].title}}">
-                <!-- <div>
-                    <app-custom-button (click)="onRemoveFromCart(product)" color="warn"> - </app-custom-button>
-                    <span>{{productQuantity[product.id] || 0}}</span>
-                    <app-custom-button (click)="onAddToCart(product)" color="primary"> + </app-custom-button>
-                </div> -->
+                
             </div>
             <div class="details-container">
                 <h3>{{product[1].title}}</h3>
@@ -17,7 +13,7 @@
     </div>
     <div class="checkout-main">
         <div class="checkout">
-            
+
             <app-custom-button>Checkout</app-custom-button>
         </div>
     </div>

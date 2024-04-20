@@ -23,7 +23,6 @@ export class ProductComponent implements OnInit {
   public ngOnInit(): void {
     const id = Number(this.route.snapshot.params['id']);
     this.getProduct(id);
-    console.log(id);
   }
 
   public getProduct(id: number) {
@@ -31,8 +30,6 @@ export class ProductComponent implements OnInit {
       {
         next: (response) => {
           this.product = response;
-          console.log(this.product);
-          // sessionStorage.setItem('products', JSON.stringify(this.products));
         },
         error: (error) => console.error(error)
       }

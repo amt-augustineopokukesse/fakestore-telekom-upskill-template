@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    height: 90vh;
+    width: 100%;
+    
+}
+
+mat-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    height: 80%;
+}
+
+.image-container {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details-container {
+    width: 50%;
+    text-align: left;
+    padding: 10px;
+
+}
+
+.image {
+    width: 100%;
+    height: 70%;
+    object-fit: contain;
+
+}

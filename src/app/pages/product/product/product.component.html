@@ -1,1 +1,16 @@
-<p>product works!</p>
+<div class="container">
+    <mat-card>
+        <div class="image-container">
+            <img class ="image" mat-card-image src="{{product.image}}" alt="{{product.title}}">
+            
+        </div>
+        <div class="details-container">
+            <h3><strong>{{product.title}}</strong></h3>
+            <span><strong>Price:</strong> {{product.price | currency:'USD'}}</span>
+            <p><strong>Category:</strong> {{product.category}}</p>
+            <p><strong>Rating:</strong> {{product.rating.rate}}</p>
+            <p><strong>Description:</strong> {{product.description}}</p>
+        </div>
+    </mat-card>  
+    
+</div>
