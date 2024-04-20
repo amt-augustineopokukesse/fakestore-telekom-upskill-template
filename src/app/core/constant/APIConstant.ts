@@ -7,7 +7,7 @@ export const APIConstant = {
   },
   products: {
     getAllProducts: 'products',
-    getSingleProduct: 'products/:id',
+    getSingleProduct: 'products',
     getAllCategories: 'products/categories',
     getProductsByCategory: 'products/category/:category',
   }

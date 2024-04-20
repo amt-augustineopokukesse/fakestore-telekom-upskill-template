@@ -15,6 +15,9 @@ export class ProductsService {
   public getProducts() {
     return this.master.get<Product[]>(this.endpoints.getAllProducts);
   }
+  public getProduct(id: number) {
+    return this.master.get<Product>(`${this.endpoints.getSingleProduct}/${id}`);
+  }
 
   public getSelectedProducts() {
     return this.selectedProducts;
