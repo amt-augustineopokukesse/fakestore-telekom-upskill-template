@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { CustomButtonComponent } from './widgets/custom-button/custom-button.component';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 
 
@@ -19,11 +20,13 @@ import { CustomButtonComponent } from './widgets/custom-button/custom-button.com
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    ProgressSpinnerModule
   ],
   exports: [
     CustomInputComponent,
-    CustomButtonComponent
+    CustomButtonComponent,
+    ProgressSpinnerModule
   ]
 })
 export class SharedModule { }

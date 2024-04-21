@@ -18,8 +18,15 @@ mat-card{
     align-items: center;
     text-align: center;
     height: 60vh;
-    background-color: rgb(255, 255, 255, 0.9)
+    background-color: rgb(255, 255, 255, 0.9);
+    position: relative;
+    
     /* color: white; */
+}
+.spinner {
+    position: absolute;
+    left: 40%;
+    top: 30%;
 }
 
 mat-card-content {

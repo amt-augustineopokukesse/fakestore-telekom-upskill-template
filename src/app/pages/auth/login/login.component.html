@@ -26,6 +26,8 @@
                 <button mat-flat-button color="primary">Login</button>
             </form>
         </mat-card-content>
+        <div class="spinner" *ngIf="isLoading">
+            <p-progressSpinner></p-progressSpinner>
+        </div>
     </mat-card>
-
 </div>
