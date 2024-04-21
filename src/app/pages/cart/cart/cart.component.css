@@ -1,9 +1,15 @@
 .container {
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
     /* flex-wrap: wrap; */
     height: 90vh;
     width: 100%;
+    /* padding: 0 5%; */
+    margin: 0 auto;
     overflow-y: auto;
     /* background-color: aqua; */
     gap: 5px;
@@ -11,7 +17,8 @@
 }
 
 .products {
-    width: 60%;
+    width: 55%;
+    padding-left: 5%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -39,7 +46,7 @@ mat-card{
 }
 
 .details-container {
-    width: 20%;
+    width: 30%;
     text-align: left;
 }
 
@@ -51,7 +58,8 @@ mat-card{
 }
 
 .checkout-main {
-    width: 40%;
+    width: 35%;
+    padding-right: 5%;
     height: 100%;
     /* background-color: bisque; */
     display: flex;
