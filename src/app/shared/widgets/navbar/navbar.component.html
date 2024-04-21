@@ -1,5 +1,7 @@
 <div class="navbar">
-    <div class="search">
+  <app-custom-button *ngIf="!url" (click)="onHomeClick()">Home</app-custom-button>
+  
+    <div *ngIf="url" class="search">
         <input
           type="text"
           pInputText
