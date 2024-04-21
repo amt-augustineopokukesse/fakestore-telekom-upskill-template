@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/core/service/auth/auth.service';
 })
 export class LoginComponent {
   public loginForm: FormGroup;
+  public isLoading = false;
 
   public constructor(private authService: AuthService, private route: Router) {
     this.loginForm = new FormGroup({
@@ -20,13 +21,18 @@ export class LoginComponent {
   }
 
   public onSubmit(): void {
+    this.isLoading = true;
     this.authService.login(this.loginForm.value).subscribe({
       next: (response: LoginResponse ) => {
+        this.isLoading = false;
         const token = response.token;
         sessionStorage.setItem('token', token);
         this.route.navigate(['products']);
       },
-      error: (error) => console.error(error)
+      error: (error) => {
+        this.isLoading = false;
+        console.error(error);
+      }
     });
   }
   
