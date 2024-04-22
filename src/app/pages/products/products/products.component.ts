@@ -28,6 +28,8 @@ export class ProductsComponent implements OnInit {
     if (storedSelectedProducts !== null) {
       this.productsService.selectedProducts = new Map(JSON.parse(storedSelectedProducts));
     }
+
+    this.cartCount = this.cartService.getCount();
     
   }
 
@@ -78,7 +80,7 @@ export class ProductsComponent implements OnInit {
   public onRemoveFromCart(product: Product) {
     if (this.productsService.selectedProducts.has(product.id)) {
       const currentProduct = this.productsService.selectedProducts.get(product.id);
-      if (currentProduct.quantity >= 1) {
+      if (currentProduct.quantity > 1) {
         const updatedProduct = {
           ...currentProduct,
           quantity: currentProduct.quantity - 1
@@ -89,21 +91,18 @@ export class ProductsComponent implements OnInit {
       } else {
         this.productsService.selectedProducts.delete(product.id);
         delete this.productQuantity[product.id];
+        this.cartCount -= 1;
       }
     }
     const serializedMap = mapSerializer(this.productsService.selectedProducts);
     sessionStorage.setItem('selectedProducts', serializedMap);
     sessionStorage.setItem('productQuantity', JSON.stringify(this.productQuantity));
-    if(this.productQuantity[product.id]) {
-      this.cartCount -= 1;
-    }
+    
     this.cartService.setCount(this.cartCount);
   }
 
   public onProductClick(productId: number) {
-    // this.router.navigate(['product-details'],  {queryParams: {id: productId}});
     this.router.navigate(['product-details', productId]);
-    // this.router.navigate([`product-details/${productId}`]);
   }
   
 }

@@ -13,7 +13,11 @@ export class CartService {
   public selectedProducts: Map<number, Product> = new Map(JSON.parse(sessionStorage.getItem('selectedProducts') as string));
 
   public constructor(private productsService: ProductsService) {
-
+    const productQuantity = JSON.parse(sessionStorage.getItem('productQuantity') as string);
+    if (productQuantity) {
+      const quantitySum = Object.values(productQuantity).reduce((a: number, b: unknown) => a + Number(b), 0);
+      this.setCount(quantitySum);
+    }
   }
 
   public getCount () {
