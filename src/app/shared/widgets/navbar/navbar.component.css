@@ -3,7 +3,6 @@
     width: 90%;
     padding: 0 5%;
     margin: 0 auto;
-    /* background-color: rgb(114, 29, 29); */
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
     display: flex;
     align-items: center;
@@ -13,7 +12,6 @@
 .search {
     width: 45%;
     height: 60%;
-    /* background-color: aqua; */
     display: flex;
     align-items: center;
     justify-content: space-between;
