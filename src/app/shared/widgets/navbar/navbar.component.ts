@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
 import { CartService } from 'src/app/core/service/cart/cart.service';
 
@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private cartService: CartService,
-    private route: ActivatedRoute
   ) {}
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
@@ -29,6 +28,7 @@ export class NavbarComponent implements OnInit {
     }
     this.cartService.cartCount$.subscribe((count) => {
       this.cartCount = count;
+      this.cartService.fetchProducts();
     });
   }
 

@@ -18,6 +18,15 @@ export class CartService {
       const quantitySum = Object.values(productQuantity).reduce((a: number, b: unknown) => a + Number(b), 0);
       this.setCount(quantitySum);
     }
+
+    this.fetchProducts();
+  }
+
+  public fetchProducts() {
+    const selectedProducts = JSON.parse(sessionStorage.getItem('selectedProducts') as string);
+    if (selectedProducts) {
+      this.selectedProducts = new Map(selectedProducts);
+    }
   }
 
   public getCount () {
