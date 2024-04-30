@@ -17,7 +17,8 @@ const routes: Routes = [
       {path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
       {path: 'product-details/:id', component: ProductComponent, canActivate: [AuthGuard]},
     ]
-  }
+  },
+  { path: 'admin-dashboard', loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then(m => m.AdminDashboardModule) }
 ];
 
 @NgModule({
