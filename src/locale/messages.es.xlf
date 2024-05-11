@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="2160195252594102717" datatype="html">
+        <source>Price:</source>
+        <target>Precio:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/product/product/product.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7501118874506324997" datatype="html">
+        <source>Category:</source>
+        <target>Categoría:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/product/product/product.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5087122090521808199" datatype="html">
+        <source>Rating:</source>
+        <target>Clasificación:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/product/product/product.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6996799422725544865" datatype="html">
+        <source>Description:</source>
+        <target>Descripción:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/product/product/product.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

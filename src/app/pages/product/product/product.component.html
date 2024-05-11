@@ -7,10 +7,10 @@
         </div>
         <div class="details-container">
             <h3><strong>{{product.title}}</strong></h3>
-            <span><strong>Price:</strong> {{product.price | currency:'USD'}}</span>
-            <p><strong>Category:</strong> {{product.category}}</p>
-            <p><strong>Rating:</strong> {{product.rating.rate}}</p>
-            <p><strong>Description:</strong> {{product.description}}</p>
+            <span><strong i18n>Price:</strong> {{ product.price | currency: "en-ES" }}</span>
+            <p><strong i18n>Category:</strong> {{product.category}}</p>
+            <p><strong i18n>Rating:</strong> {{product.rating.rate}}</p>
+            <p><strong i18n>Description:</strong> {{product.description}}</p>
         </div>
     </mat-card>  
     
