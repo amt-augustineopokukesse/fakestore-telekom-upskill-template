@@ -17,6 +17,7 @@ describe('LoginComponent', () => {
   let mockAuthService: jasmine.SpyObj<AuthService>;
   let mockMasterService: jasmine.SpyObj<MasterService>;
   let mockRouter: jasmine.SpyObj<Router>;
+  
 
   beforeEach(async () => {
     mockAuthService = jasmine.createSpyObj('AuthService', ['login']);
@@ -31,7 +32,8 @@ describe('LoginComponent', () => {
       providers: [
         { provide: AuthService, useValue: mockAuthService },
         { provide: MasterService, useValue: mockMasterService },
-        { provide: Router, useValue: mockRouter }
+        { provide: Router, useValue: mockRouter },
+
       ]
     }).compileComponents();
     fixture = TestBed.createComponent(LoginComponent);
